@@ -14,7 +14,7 @@ import Image from 'next/image';
 
 const Carousel = () => {
   return (
-    <div className='my-5 max-w-7xl overflow-hidden mx-auto '>
+    <div className='my-10 max-w-7xl overflow-hidden mx-auto '>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

@@ -1,19 +1,48 @@
+"use client";
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
-async function page({ params }) {
-    
-    const res = await fetch(`http://localhost:5001/restaurant/${params.id}`)
-    const product = await res.json();
+function page({ params }) {
+
+    const [product , setProduct] = useState([])
+    useEffect(()=>{
+        async function mainProduct(){
+           await fetch(`http://localhost:5002/restaurant/${params.id}`)
+            .then(res => res.json())
+            .then(data => setProduct(data))
+        }
+        mainProduct()
+    },[])
+
+    console.log(product)
+
+    const [value , setValue] = useState(0);
+
+    const handleQuintity = ()=>{
+        if(value > 0){
+            setValue(value-1)
+        }
+        else{
+            alert('can not dicrease')
+        }
+    }
+    const handleQuintityIncress = ()=>{
+        setValue(value+1)
+    }
+
+    console.log(value)
+
+
+
 
     return (
         <div>
-            <div className="max-w-7xl mx-auto lg:px-0 sm:px-10 px-4 -20">
+            <div className="max-w-7xl mx-auto lg:px-0 sm:px-10 px-4 my-20">
                 <div className=" flex flex-col md:flex-row items-center justify-center md:gap-10 gap-5 my-5">
                     <figure className="flex-1">
-                        <Image width={300} height={200} src={product?.img} className="h-[50vh] w-full object-cover" alt="Food Image" />
+                        <Image width={300} height={200} src={product?.image} className=" w-full object-cover" alt="Food Image" />
                     </figure>
                     <div className="md:flex-1 text-start">
 
@@ -52,9 +81,9 @@ async function page({ params }) {
                             </div>
                             <div className="flex gap-5 items-center">
                                 <p className="bordered border-2 text-xl px-4 py-3">
-                                    <button className="px-4">-</button>
-                                    <span>0</span>
-                                    <button className="px-4">+</button>
+                                    <button onClick={handleQuintity} className="px-4">-</button>
+                                    <span>{value}</span>
+                                    <button onClick={handleQuintityIncress} className="px-4">+</button>
                                 </p>
                                 <Link href={`/order`} className="text-xl text-white rounded bg-[#ee3f36e8] hover:bg-[#EE4036] px-4 py-3">Order Now</Link>
                             </div>
@@ -64,7 +93,7 @@ async function page({ params }) {
                     </div>
                 </div>
 
-                <div className=' border-2 '>
+                {/* <div className=' border-2 '>
                     <div role="tablist" className="tabs tabs-bordered m-2 text-xl">
                         <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Description" defaultChecked />
                         <div role="tabpanel" className="tab-content sm:py-6 p-3">
@@ -114,7 +143,7 @@ async function page({ params }) {
 
                         </div>
                     </div>
-                </div>
+                </div> */}
 
             </div>
 

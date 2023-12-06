@@ -9,7 +9,7 @@ export default function Login() {
            
            <div className=" bg-gray-100 rounded md:flex gap-5 mx-auto">
            <div className="hidden md:block md:w-2/4">
-               <Image width={500} height={300}  className="h-full w-full object-cover rounded-l" src="https://i.ibb.co/dB5DTJM/6333050-removebg-preview.png" alt="food" />
+               <Image width={550} height={300}  className="h-full w-full object-cover rounded-l" src="https://i.ibb.co/dB5DTJM/6333050-removebg-preview.png" alt="food" />
            </div>
               <div className=" md:w-2/4 p-10">
               <h2 className="text-3xl py-5 font-semibold">Login IN NOW</h2>

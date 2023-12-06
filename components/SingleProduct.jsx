@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
-import { FaStar, FaHeart } from "react-icons/fa";
+import { FaStar, FaHeart, FaCartArrowDown, FaRegHeart } from "react-icons/fa";
 import Swal from 'sweetalert2';
 
 export default function SingleProduct({ product }) {
@@ -84,20 +84,33 @@ export default function SingleProduct({ product }) {
 
     return (
         <div>
-            <div className="shadow-2xl rounded" data-aos="zoom-in">
-                <div>
-                    <Link href={`/checkout/${id}`}>
-                        <div className='h-[250px] relative'>
-                            <Image width={250} height={250} className="rounded-t w-full h-full z-0" src={image} alt="" />
-                            <span className='absolute top-2 right-2 bg-red-500 text-white rounded px-2 '>
-                                -45%
-                            </span>
+            <div className=" border rounded p-2 group delay-[2000]" data-aos="zoom-in">
+                <div className=' flex flex-col '>
+                    <div className='h-[250px] relative flex-grow'>
+                        <Link href={`/checkout/${id}`}>
+                            <Image  width={250} height={250} className="rounded-t w-full h-full 
+                            group-hover:scale-105 transition  z-0" src={image} alt="" />
+                        </Link>
+                        <span className='absolute top-2 left-2 bg-red-500 text-white rounded-xl px-2 '>
+                            {/* -{product?.discount ? product?.discount : ''} % */}
+                            {
+                                product?.discount && <span>-{product?.discount}%</span>
+                            }
+                        </span>
+                        <div className='absolute top-2 right-0 group-hover:right-2 group-hover:flex flex-col justify-center gap-3 hidden'>
+                            <FaCartArrowDown onClick={()=>addToCartLocalhost(id)} className='cursor-pointer  bg-red-500  text-white  p-2 text-4xl rounded' />
+                            <FaRegHeart onClick={()=>handleFavorite(id)} className='cursor-pointer  bg-red-500  text-white  p-2 text-4xl rounded' />
                         </div>
-                    </Link>
+                    </div>
 
-                    <div className="px-4 py-2">
-                        <div className="flex justify-between items-center my-2">
-                            <div className="flex text-orange-400 pt-2">
+
+                    <div className='p-4 flex-grow'>
+                        <div className=" flex justify-between">
+
+
+                            <h4 className="font-semibold py-1 my-2 flex-grow text-[16px]">{title}</h4>
+
+                            <div className="flex text-[12px] text-orange-400 pt-2">
                                 <FaStar></FaStar>
                                 <FaStar></FaStar>
                                 <FaStar></FaStar>
@@ -105,15 +118,16 @@ export default function SingleProduct({ product }) {
                                 <FaStar></FaStar>
                                 <span className='ml-2'> ({review})</span>
                             </div>
-                            <FaHeart onClick={() => handleFavorite(id)} className="cursor-pointer text-red-500 text-xl"></FaHeart>
-                            {/* onClick={() => handleFavorite(id)} */}
+                            {/* <FaHeart className="cursor-pointer text-red-500 text-xl"></FaHeart> */}
+
+
+
                         </div>
-                        <h4 className="font-semibold py-1 my-2 text-xl">{title}</h4>
-                        <div className="flex gap-2 justify-between text-white pb-2">
-                            <h3 className="text-[#EE4036] font-semibold text-4xl">{price}৳</h3>
-                            {/* <Link className="bg-[#EE4036] py-2 w-1/2 rounded-md text-center font-semibold" >Buy Now</Link> */}
-                            <button onClick={() => addToCartLocalhost(id)} className="bg-gradient-to-r from-red-500 to-[#1f1c4e] py-2 w-1/2 = rounded-md">Add to Cart</button>
-                            {/* onClick={() => addToCartLocalhost(id)} */}
+                        <div className="flex gap-2 justify-between text-white">
+                            {
+                                product?.discount ? <h3 className="text-[#EE4036] font-semibold text-2xl"><span>{price - (price * product?.discount / 100)}৳</span>  <del className='text-[12px]'>{price}৳</del></h3> : <h3 className="text-[#EE4036] font-semibold text-2xl">{price}৳</h3>
+                            }
+                            {/* <button className="bg-gradient-to-r from-red-500 to-[#1f1c4e] py-2 w-1/2 = rounded-md">Add to Cart</button> */}
                         </div>
                     </div>
 

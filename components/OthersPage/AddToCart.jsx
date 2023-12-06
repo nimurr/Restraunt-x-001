@@ -11,7 +11,7 @@ import React, { useEffect , useState } from 'react'
             
             const cartItem = localStorage.getItem('addToCart');
             const pars = JSON.parse(cartItem);
-            const res = await fetch('https://v7pg4l9c-5002.asse.devtunnels.ms/restaurant')
+            const res = await fetch('http://localhost:5002/restaurant')
             const product = await res.json();
             setAddtoCart(product.filter(d => pars?.includes(d.id)));
 
@@ -32,6 +32,9 @@ import React, { useEffect , useState } from 'react'
 
     const totalPrice = addTocart.reduce((d , i) => (d + parseFloat(i.price)) , 0)
     console.log(totalPrice)
+
+
+    console.log(addTocart)
 
   return (
     <div>
@@ -64,7 +67,7 @@ import React, { useEffect , useState } from 'react'
                         )
                     }
                 </div>
-                <div className="bg-blue-100 p-4 w-full h-[30vh]">
+                <div className="bg-blue-100 p-4 w-full xl:h-[30vh]">
                     <h2 className="text-center text-4xl text-[#262261]">Order Summary</h2>
                     <div className="my-5">
                         <h3 className="my-1">Quantity :  {addTocart?.length} </h3>

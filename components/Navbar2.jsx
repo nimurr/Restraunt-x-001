@@ -53,7 +53,7 @@ export default function Navbar2() {
 
 
             </div>
-            <div className="lg:block hidden mr-10">
+            <div className="lg:block hidden mr-5">
               <ul className="flex items-center gap-5 font-semibold">
                 <Link href={"/"} className="py-8 text-[16px] cursor-pointer">
                   Home
@@ -109,12 +109,12 @@ export default function Navbar2() {
                 </Link>
               </ul>
             </div>
-            <label className=" bg-transparent cursor-pointer rounded-md overflow-hidden ">
-              {/* <input className="border-0 outline-0 p-3" type="text" placeholder="Search Item .." />
-                <button className='bg-blue-500 px-4 py-3 text-white font-bold'>Search</button> */}
+            <label className=" bg-transparent cursor-pointer rounded-md overflow-hidden flex items-center gap-2 bg-white pr-1">
+              <input className="border-0 outline-0 p-2 outline-none" type="text" placeholder="Search Item .." />
+                {/* <button className='bg-blue-500 px-4 py-3 text-white font-bold'>Search</button> */}
               <IoSearch onClick={handleSearch} className="text-2xl" />
 
-              {menu && (
+              {/* {menu && (
                 <ul className=" lg:hidden font-semibold absolute top-16 right-0 bg-gray-300 px-10 w-[100vw] mx-auto block z-50">
                   <Link
                     href={"/"}
@@ -181,7 +181,7 @@ export default function Navbar2() {
                     Contact
                   </Link>
                 </ul>
-              )}
+              )} */}
             </label>
             <Link href={'/addproduct'} className="cursor-pointer bg-transparent">
               <MdShoppingCart

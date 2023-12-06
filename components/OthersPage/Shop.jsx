@@ -81,15 +81,17 @@ function Shop() {
   };
 
   return (
-    <div className="allShopGradint">
+    <div className="">
+      <div className="allShopGradint">
+        <div className="  text-center h-[30vh] flex justify-center items-center ">
+          <h2 className="text-5xl text-white font-semibold">Shop</h2>
+        </div>
+      </div>
       <div className="max-w-7xl mx-auto lg:px-0 sm:px-10 px-4">
         {/* <Toaster
                 position="top-center"
                 reverseOrder={false}
             /> */}
-        <div className="  text-center h-[20vh] flex justify-center items-center bg-red-300">
-          <h2 className="text-5xl text-white font-semibold">Shop</h2>
-        </div>
         <div className="md:grid md:grid-cols-2 xl:grid-cols-4 justify-between gap-7 my-10">
           <div className="lg:col-span-1 w-full">
             <div>

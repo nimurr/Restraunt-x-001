@@ -3,7 +3,8 @@ import React from "react";
 
 export default function Offers() {
   return (
-    <div className="bg-gradient-to-r from-[#000] to-[#1326cfc7] text_family px-4 lg:px-0">
+    <div className="bg-gray-100 text_family px-4 lg:px-0">
+      {/* bg-gradient-to-r from-[#1b1b33] to-[#532828] */}
       <div className="max-w-7xl mx-auto py-20">
         <div className="lg:grid grid-cols-2 flex flex-col-reverse justify-center items-center">
           <div>
@@ -11,10 +12,10 @@ export default function Offers() {
               <h2 className="sm:text-5xl text-2xl font-semibold text-red-500">
                 All Burger
               </h2>
-              <span className="sm:text-[200px]  text-white text-[100px] font-semibold leading-1">
+              <span className="sm:text-[200px]  text-black text-[100px] font-semibold leading-1">
                 50%<span className="sm:text-5xl text-3xl">off</span>
               </span>
-              <p className="text-[18px] text-gray-300">It seems like you are looking for someone to provide a food offer in exchange for work. If you have a specific request or job you need assistance with, please provide more details so that I can better understand your needs and offer guidance. Whether it is a specific type of work, skills required, or the nature of the food offer, providing more information will help me assist you more effectively.</p>
+              <p className="text-[18px] text-gray-600">It seems like you are looking for someone to provide a food offer in exchange for work. If you have a specific request or job you need assistance with, please provide more details so that I can better understand your needs and offer guidance. Whether it is a specific type of work, skills required, or the nature of the food offer, providing more information will help me assist you more effectively.</p>
               <button className="bg-red-500 p-3 mt-4 rounded text-white font-semibold block">
                 Get Started
               </button>

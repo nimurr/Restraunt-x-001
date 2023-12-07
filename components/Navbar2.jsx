@@ -185,7 +185,7 @@ export default function Navbar2() {
             </label>
             <Link href={'/addproduct'} className="cursor-pointer bg-transparent">
               <MdShoppingCart
-                onClink={handleSearch}
+                onClick={handleSearch}
                 className="sm:text-3xl text-xl bg-transparent "
               />
             </Link>

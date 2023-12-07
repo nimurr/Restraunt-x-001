@@ -21,7 +21,7 @@ const ProfileLayout = ({ children }) => {
                     <small className='text-center block'>abc@abc.com</small>
                     <h3 className='text-center text-xl font-semibold text-gray-600'>Mr. Jos Batler</h3>
                     <div className='flex flex-col justify-center text-center py-5 gap-2 text-lg'>
-                        <div className='text-start flex flex-col'>
+                        <div className='text-start flex flex-col text-gray-700'>
                             <Link className={`hover:text-red-500 p-2 ${pathName == '/profile' ? 'text-red-600 ' : ''} hover:bg-gray-200`} href={'/profile'}>Profile</Link>
                             <hr className='border-[1.2px] border-gray-200' />
                             <Link className={`hover:text-red-500 p-2 ${pathName == '/profile/orders' ? 'text-red-600 ' : ''} hover:bg-gray-200`} href={'/profile/orders'}>Orders</Link>

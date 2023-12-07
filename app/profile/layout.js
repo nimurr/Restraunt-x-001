@@ -21,12 +21,19 @@ const ProfileLayout = ({ children }) => {
                     <small className='text-center block'>abc@abc.com</small>
                     <h3 className='text-center text-xl font-semibold text-gray-600'>Mr. Jos Batler</h3>
                     <div className='flex flex-col justify-center text-center py-5 gap-2 text-lg'>
-                    <Link className={` ${pathName=='/profile' ? 'text-red-600 font-semibold' : ''}`} href={'/profile'}>Profile</Link>
-                    <Link className={` ${pathName=='/profile/orders' ? 'text-red-600 font-semibold' : ''}`} href={'/profile/orders'}>Orders</Link>
-                    <Link className={` ${pathName=='/profile/passwordupdate' ? 'text-red-600 font-semibold' : ''}`} href={'/profile/passwordupdate'}>Password Update</Link>
+                        <div className='text-start flex flex-col'>
+                            <Link className={`hover:text-red-500 p-2 ${pathName == '/profile' ? 'text-red-600 ' : ''} hover:bg-gray-200`} href={'/profile'}>Profile</Link>
+                            <hr className='border-[1.2px] border-gray-200' />
+                            <Link className={`hover:text-red-500 p-2 ${pathName == '/profile/orders' ? 'text-red-600 ' : ''} hover:bg-gray-200`} href={'/profile/orders'}>Orders</Link>
+                            <hr className='border-[1.2px] border-gray-200' />
+
+                            <Link className={`hover:text-red-500  p-2 ${pathName == '/profile/passwordupdate' ? 'text-red-600 ' : ''} hover:bg-gray-200`} href={'/profile/passwordupdate'}>Password Update</Link>
+                            <hr className='border-[1.2px] border-gray-200' />
+
+                        </div>
+                    </div>
                 </div>
-                </div>
-                
+
             </div>
             <div className='md:w-3/4'>{children}</div>
         </div>

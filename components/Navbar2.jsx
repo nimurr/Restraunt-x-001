@@ -11,14 +11,12 @@ import { AiOutlineClose } from "react-icons/ai";
 
 export default function Navbar2() {
   const [menu, setMenu] = useState(false);
-
   const handleMenuClicked = () => {
     console.log("clicked");
     setMenu(!menu);
   };
 
   const [search, setSearch] = useState(false);
-
   const handleSearch = () => {
     setSearch(!search);
   };
@@ -112,7 +110,7 @@ export default function Navbar2() {
             <label className=" bg-transparent cursor-pointer rounded-md overflow-hidden flex items-center gap-2 bg-white pr-1">
               <input className="border-0 outline-0 p-2 outline-none" type="text" placeholder="Search Item .." />
                 {/* <button className='bg-blue-500 px-4 py-3 text-white font-bold'>Search</button> */}
-              <IoSearch onClick={handleSearch} className="text-2xl" />
+              <IoSearch className="text-2xl" />
 
               {/* {menu && (
                 <ul className=" lg:hidden font-semibold absolute top-16 right-0 bg-gray-300 px-10 w-[100vw] mx-auto block z-50">
@@ -200,13 +198,13 @@ export default function Navbar2() {
                 height={40}
               />
             </Link>
-            {search && (
+            {/* {search && (
               <input
                 type="text"
                 placeholder="search now"
                 className="absolute border-0 shadow-md rounded-md top-16 sm:right-20 right-10 md:top-20 md:right-[100px] lg:w-[500px] z-50"
               />
-            )}
+            )} */}
           </div>
         </nav>
       </div>

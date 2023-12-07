@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 
 export default function page() {
@@ -31,10 +31,39 @@ export default function page() {
           });
     }
 
+    const [quantity, setQuantity] = useState(1)
+    const [totalMoney , setTotalMoney] = useState(0)
+
+
+    const handleDicress = ()=>{
+      if(quantity < 1){
+        return ;
+      }
+      else if (quantity > 0){
+        setQuantity(quantity-1)
+        setTotalMoney(quantity*100)
+      }
+    }
+    const handleincress = ()=>{
+      if(quantity < 1){
+        return ;
+      }
+      else if (quantity >= 0){
+        setQuantity(quantity+1)
+        setTotalMoney(quantity*100)
+      }
+    }
+
+    console.log(quantity,totalMoney)
+
+
+
+
+
   return (
     <div className="max-w-7xl mx-auto my-10">
       <div className="container mx-auto px-4 pb-16">
-        <h1 className="text-3xl font-bold mb-4">Order Summary</h1>
+        {/* <h1 className="text-3xl font-bold mb-4">Order Summary</h1> */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="w-full md:w-2/3">
             <div className="bg-white p-4 rounded shadow">
@@ -42,29 +71,27 @@ export default function page() {
               <ul className="list-disc space-y-2">
                 <li className="flex justify-between items-center font-semibold">Name <span>Quantity</span> <span>Price</span></li>
                 <hr />
-                <li className="flex justify-between items-center">
-                  Burger <span>12</span> <span>$100.00</span>
-                </li>
-                <li className="flex justify-between items-center">
-                  Pizza <span>01</span> <span>$100.00</span>
-                </li>
-                <li className="flex justify-between items-center">
-                Burger <span>10</span> <span>$100.00</span>
-                </li>
-                <li className="flex justify-between items-center">
-                  Pizza <span>01</span> <span>$100.00</span>
-                </li>
-                <li className="flex justify-between items-center">
-                Burger <span>52</span> <span>$100.00</span>
+                {/* <li className="flex justify-between items-center bg-gray-100 p-2">
+                  Burger <span>1</span> <span>$100.00</span>
+                </li> */}
+                <li className="flex justify-between items-center p-2">
+                  Pizza <span> 
+                            <span onClick={handleDicress} className='mr-2 px-2 rounded bg-gray-100 text-2xl font-semibold cursor-pointer'>- </span>
+                             {quantity}
+                             <span onClick={handleincress} className="ml-2 px-2 rounded bg-gray-100 text-2xl font-semibold cursor-pointer"> +</span>
+                        </span> 
+                  <span>${totalMoney}</span>
                 </li>
               </ul>
               <hr className="my-4" />
               <div className="flex justify-end">
                 <span className="text-gray-700 font-bold">Total:</span>
-                <span className="text-gray-700 ml-2">$500.00</span>
+                <span className="text-gray-700 ml-2">${totalMoney}</span>
               </div>
             </div>
           </div>
+
+
           <div className="w-full md:w-1/3">
             <div className="bg-white p-4 rounded shadow">
               <h2 className="text-xl font-bold mb-4">Payment Information</h2>
@@ -72,7 +99,7 @@ export default function page() {
                 <div className="mb-4">
                   <label
                     for="name"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     Name on Card:
                   </label>
@@ -82,13 +109,13 @@ export default function page() {
                     id="name"
                     name="cardname"
                     placeholder="Card Name"
-                    className="w-full rounded border px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                   />
                 </div>
                 <div className="mb-4">
                   <label
                     for="cardNumber"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     Card Number:
                   </label>
@@ -98,14 +125,14 @@ export default function page() {
                     name="cardnumber"
                     id="cardNumber"
                     placeholder="Card Number"
-                    className="w-full rounded border px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                   />
                 </div>
                 <div className="flex flex-row mb-4">
                   <div className="w-1/2">
                     <label
                       for="expirationDate"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium text-gray-700 mb-2"
                     >
                       Expiration Date:
                     </label>
@@ -115,13 +142,13 @@ export default function page() {
                       name="expireDate"
                       id="expirationDate"
                       placeholder="Expire Date"
-                      className="w-full rounded border px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                     />
                   </div>
                   <div className="w-1/2 ml-4">
                     <label
                       for="cvv"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium text-gray-700 mb-2"
                     >
                       CVV:
                     </label>
@@ -131,7 +158,7 @@ export default function page() {
                       name="cvv"
                       id="cvv"
                       placeholder="CVV"
-                      className="w-full rounded border px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                     />
                   </div>
                 </div>

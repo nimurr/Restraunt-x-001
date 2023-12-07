@@ -11,7 +11,7 @@ import React, { useEffect , useState } from 'react'
             
             const cartItem = localStorage.getItem('addToCart');
             const pars = JSON.parse(cartItem);
-            const res = await fetch('https://v7pg4l9c-5002.asse.devtunnels.ms/restaurant')
+            const res = await fetch('http://localhost:5003/restaurant')
             const product = await res.json();
             setAddtoCart(product.filter(d => pars?.includes(d.id)));
 

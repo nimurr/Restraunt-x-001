@@ -3,13 +3,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import { FaStar } from "react-icons/fa6";
+import { FaRegStarHalfStroke } from "react-icons/fa6";
+
+
+
 
 function Checkout({ params }) {
 
     const [product , setProduct] = useState([])
     useEffect(()=>{
         async function mainProduct(){
-           await fetch(`https://v7pg4l9c-5002.asse.devtunnels.ms/restaurant/${params.id}`)
+           await fetch(`http://localhost:5003/restaurant/${params.id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
         }
@@ -80,7 +87,7 @@ function Checkout({ params }) {
                                 <span className="ml-2 font-semibold">Enter Your Size</span>
                             </div>
                             <div className="flex gap-5 items-center">
-                                <p className="bordered border-2 text-xl px-4 py-3">
+                                <p className="bordered border-2 text-xl px-2 py-2">
                                     <button onClick={handleQuintity} className="px-4">-</button>
                                     <span>{value}</span>
                                     <button onClick={handleQuintityIncress} className="px-4">+</button>
@@ -92,62 +99,101 @@ function Checkout({ params }) {
 
                     </div>
                 </div>
+                <Tabs>
+                    <TabList>
+                    <Tab>Description</Tab>
+                    <Tab>Review</Tab>
+                    </TabList>
 
-                {/* <div className=' border-2 '>
-                    <div role="tablist" className="tabs tabs-bordered m-2 text-xl">
-                        <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Description" defaultChecked />
-                        <div role="tabpanel" className="tab-content sm:py-6 p-3">
-                            <p>
-                            <span className='font-bold mr-2'>
-                            {product?.title} 
-                            </span>
-                             Porem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis Maecenas ut tellus mi. Proin tincidunt, lectusu volutpat mattis, ante metus lacinia tellus, vitae condimentum nulla enim bibendum nibh. Praesent turpis risus, interdumnec venenpretium sit amet purus et malesuada fames ac ante ipsum primis in faucibus.
-                            </p>
+                    <TabPanel>
+                        <h2 className='text-xl font-semibold my-3'>{product?.title}</h2>
+                        <p> Describe the flavors and textures of a classic Italian dish like spaghetti carbonara . What are the key ingredients and cooking techniques used in Japanese cuisine? . Explain the differences between Neapolitan, New York-style, and Chicago-style pizza. Describe the flavors and textures of a classic Italian dish like spaghetti carbonara . What are the key ingredients and cooking techniques used in Japanese cuisine? . Explain the differences between Neapolitan, New York-style, and Chicago-style pizza.</p>
+                        <p className='mt-4'> Describe the flavors and textures of a classic Italian dish like spaghetti carbonara . What are the key ingredients and cooking techniques used in Japanese cuisine? . Explain the differences between Neapolitan, New York-style, and Chicago-style pizza. Describe the flavors and textures of a classic Italian dish like spaghetti carbonara . What are the key ingredients and cooking techniques used in Japanese cuisine? . Explain the differences between Neapolitan, New York-style, and Chicago-style pizza.</p>
+                    </TabPanel>
+                    <TabPanel>
+                        <div className="flex items-center gap-4 mb-10">
+                            <h2 className="text-4xl font-semibold mt-3 flex">4.8 <h2 className="text-[16px] font-semibold mt-3">(1.2k)</h2></h2>
+                            <div className='flex items-center gap-1 mb-2'>
+                                <FaStar className="text-orange-400" />
+                                <FaStar className="text-orange-400" />
+                                <FaStar className="text-orange-400" />
+                                <FaStar className="text-orange-400"  />
+                                <FaRegStarHalfStroke className="text-orange-400" />
+                            </div>
+                            
                         </div>
-
-                        <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Reviews" />
-                        <div role="tabpanel" className="tab-content sm:py-6 p-3">
-
-                            <ul>
-                                 <li className='flex gap-4 '> <span>Quelity  <sup className='text-[14px]'>(1.2k)</sup> </span>
-                                    <p className='flex'>
-                                        <AiFillStar className="text-orange-400" />
-                                        <AiFillStar className="text-orange-400" />
-                                        <AiFillStar className="text-orange-400" />
-                                        <AiFillStar className="text-orange-400" />
-                                        <AiOutlineStar />
-                                    </p>
-                                </li>
-                                 <li className='my-3 flex gap-4'>
-                                 <span>Price  <sup className='text-[14px]'>(2.4k)</sup> </span> 
-                                    <p className='flex'>
-                                        <AiFillStar className="text-orange-400" />
-                                        <AiFillStar className="text-orange-400" />
-                                        <AiFillStar className="text-orange-400" />
-                                        <AiFillStar className="text-orange-400" />
-                                        <AiFillStar className="text-orange-400" />
-                                    </p>
-                                </li>
-                                 <li className='flex gap-4'>
-                                 <span>Service  <sup className='text-[14px]'>(1.5k)</sup> </span>  
-                                    <p className='flex'>
-                                        <AiFillStar className="text-orange-400" />
-                                        <AiFillStar className="text-orange-400" />
-                                        <AiFillStar className="text-orange-400" />
-                                        <AiFillStar className="text-orange-400" />
-                                        <AiFillStar className="text-orange-400" />
-                                        
-                                    </p>
-                                 </li>
-                            </ul>
-
+                        <div className='border-b pb-4'>
+                            <h2 className="text-xl font-semibold mt-3">Nimur</h2>
+                            <div className='flex items-center gap-1 mb-2'>
+                                <FaStar className="text-orange-400" />
+                                <FaStar className="text-orange-400" />
+                                <FaStar className="text-orange-400" />
+                                <FaStar className="text-orange-400"  />
+                                <FaStar className="text-orange-400"  />
+                                <p>(5)</p>
+                            </div>
+                            <p>Tucked away on a quiet side street, RestaurantX is a culinary gem that should not be missed. From the moment I stepped through the door, I was transported to a world of warmth and comfort. The aroma of spices and sizzling ingredients filled the air, whetting my appetite for the deliciousness to come.</p>
                         </div>
-                    </div>
-                </div> */}
-
+                        <div className='border-b pb-4'>
+                            <h2 className="text-xl font-semibold mt-3">Dipu</h2>
+                            <div className='flex items-center gap-1 mb-2'>
+                                <FaStar className="text-orange-400" />
+                                <FaStar className="text-orange-400" />
+                                <FaStar className="text-orange-400" />
+                                <FaStar className="text-orange-400"  />
+                                <FaRegStarHalfStroke className="text-orange-400" />
+                                <p>(4.5)</p>
+                            </div>
+                            <p>Tucked away on a quiet side street, RestaurantX is a culinary gem that should not be missed. From the moment I stepped through the door, I was transported to a world of warmth and comfort. The aroma of spices and sizzling ingredients filled the air, whetting my appetite for the deliciousness to come.</p>
+                        </div>
+                        <div className='border-b pb-4'>
+                            <h2 className="text-xl font-semibold mt-3">Dipak</h2>
+                            <div className='flex items-center gap-1 mb-2'>
+                                <FaStar className="text-orange-400" />
+                                <FaStar className="text-orange-400" />
+                                <FaStar className="text-orange-400" />
+                                <FaStar className="text-orange-400"  />
+                                <FaRegStarHalfStroke className="text-orange-400" />
+                                <p>(4.5)</p>
+                            </div>
+                            <p>Tucked away on a quiet side street, RestaurantX is a culinary gem that should not be missed. From the moment I stepped through the door, I was transported to a world of warmth and comfort. The aroma of spices and sizzling ingredients filled the air, whetting my appetite for the deliciousness to come.</p>
+                        </div>
+                        <div class="p-8 mt-10 rounded border border-gray-200">    
+                        <h1 class="font-medium text-3xl">Add Your Review</h1>   
+                          <form>     
+                             <div class="mt-8 sm:grid lg:grid-cols-3 md:grid-cols-2  gap-4">       
+                                <div>          
+                                    <label for="name" class="text-sm text-gray-700 block mb-1 font-medium">Name</label>          
+                                    <input type="text" name="name" id="name" class="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="Enter your name" />        
+                                </div>        
+                                <div>          
+                                    <label for="email" class="text-sm text-gray-700 block mb-1 font-medium">Email Adress</label>          
+                                    <input type="text" name="email" id="email" class="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="demo@gmail.com" />        
+                                </div>        
+                                <div>          
+                                    <label for="job" class="text-sm text-gray-700 block mb-1 font-medium">Rating</label>          
+                                    <select className="w-full bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700" name="" id="">
+                                        <option disabled value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="4">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>        
+                                <div className='col-span-3'>          
+                                    <label for="brithday" class="text-sm text-gray-700 block mb-1 font-medium">Review Comments</label>          
+                                    <textarea className='w-full bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700' placeholder="Review Comments"  name="" id="" cols="200" rows="5"></textarea>
+                                </div>      
+                                </div>      
+                                <div class="space-x-4 mt-8">        
+                                    <button type="submit" class="py-3 px-6 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 font-semibold">Your Comments</button>    
+                                </div>    
+                            </form>  
+                        </div>
+                    </TabPanel>
+                </Tabs>
             </div>
-
-
         </div>
     )
 }

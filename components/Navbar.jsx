@@ -26,7 +26,7 @@ export default function Navbar() {
     {name:"Shop" , href:"/shop"},
     {name:"Pages" , href:"/pages"},
     {name:"Contact" , href:"/contact"},
-    {name:"About" , href:"/about"},
+    {name:"About" , href:"/about"}
   ]
 
   // const li = <div className="sm:flex gap-4 block">
@@ -39,8 +39,6 @@ export default function Navbar() {
 
   return (
     <div className="sticky top-0 z-50 shadow-red-100 bg-white shadow">
-      
-   
       <div className=" bg-white max-w-7xl mx-auto lg:px-0 sm:px-10 px-4">
         <div className="navbar py-5">
           <div className="navbar-start">

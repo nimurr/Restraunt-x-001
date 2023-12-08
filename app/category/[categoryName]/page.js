@@ -1,10 +1,13 @@
-import React from 'react'
+
+import SingleCategory from '@/components/SingleCategory'
 
 export default function page({params}) {
-    console.log(params.categoryName)
+
+
   return (
-    <div>
+    <div className='max-w-7xl mx-auto my-10'>
       <h2 className='text-4xl text-center my-10'>All {params.categoryName}</h2>
+      <SingleCategory params={params}> </SingleCategory>
     </div>
   )
 }

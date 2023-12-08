@@ -7,9 +7,12 @@ import { IoMdMenu } from "react-icons/io";
 import Link from "next/link";
 import { IoSearch } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
+import { usePathname } from "next/navigation";
 
 
 export default function Navbar2() {
+  const pathname = usePathname();
+
   const [menu, setMenu] = useState(false);
   const handleMenuClicked = () => {
     console.log("clicked");
@@ -53,20 +56,19 @@ export default function Navbar2() {
             </div>
             <div className="lg:block hidden mr-5">
               <ul className="flex items-center gap-5 font-semibold">
-                <Link href={"/"} className="py-8 text-[16px] cursor-pointer">
+                <Link href={"/"} className={`py-8 text-[16px] cursor-pointer ${pathname =='/' ? 'text-red-500 font-semibold' : ''} cursor-pointer bg-transparent`}>
                   Home
                 </Link>
-                <Link href={"/shop"} className="py-8 text-[16px] cursor-pointer">
+                <Link href={"/shop"} className={`py-8 text-[16px] cursor-pointer ${pathname =='/shop' ? 'text-red-500 font-semibold' : ''} cursor-pointer bg-transparent`}>
                   Shop
                 </Link>
-                <Link
-                  href={"/menu"}
-                  className="relative cursor-pointer group py-8 text-[16px]"
+                <div
+                  className={`py-8 text-[16px] group cursor-pointer `} 
                 >
                   Menu <FaAngleDown className="inline" />
                   <ul className="absolute hidden group-hover:block mt-8 z-50">
                     <div className="">
-                      <li className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
+                      <Link href={'/category/burger'}  className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
                         <Image
                           className=" cursor-pointer w-10 h-10 rounded-full"
                           src={"https://i.ibb.co/FJNqb44/images.jpg"}
@@ -74,120 +76,53 @@ export default function Navbar2() {
                           width={40}
                           height={40}
                         />{" "}
-                        Menu1
-                      </li>
-                      <li className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
+                        Burger
+                      </Link>
+                      <Link href={'/category/pizza'} className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
                         <Image
                           className=" cursor-pointer w-10 h-10 rounded-full"
-                          src={"https://i.ibb.co/FJNqb44/images.jpg"}
+                          src={"https://i.ibb.co/g6jCxmr/download.jpg"}
                           alt="user"
                           width={40}
                           height={40}
                         />{" "}
-                        Menu1
-                      </li>
-                      <li className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
+                        Pizza
+                      </Link>
+                      <Link href={'/category/sanduage'} className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
                         <Image
                           className=" cursor-pointer w-10 h-10 rounded-full"
-                          src={"https://i.ibb.co/FJNqb44/images.jpg"}
+                          src={"https://i.ibb.co/f8LWj1b/images.jpg"}
                           alt="user"
                           width={40}
                           height={40}
                         />{" "}
-                        Menu1
-                      </li>
+                        Sanduage
+                      </Link>
                     </div>
                   </ul>
+                </div>
+                <Link href={"/pages"} className={`py-8 text-[16px] cursor-pointer ${pathname =='/pages' ? 'text-red-500 font-semibold' : ''} cursor-pointer bg-transparent`}>
+                  Pages
                 </Link>
-                <Link href={"/about"} className="py-8 text-[16px] cursor-pointer">
+                <Link href={"/about"} className={`py-8 text-[16px] cursor-pointer ${pathname =='/about' ? 'text-red-500 font-semibold' : ''} cursor-pointer bg-transparent`}>
                   About
                 </Link>
-                <Link href={"/contact"} className="py-8 text-[16px] cursor-pointer">
+                <Link href={"/contact"} className={`py-8 text-[16px] cursor-pointer ${pathname =='/contact' ? 'text-red-500 font-semibold' : ''} cursor-pointer bg-transparent`} >
                   Contact
                 </Link>
               </ul>
             </div>
             <label className=" bg-transparent cursor-pointer rounded-md overflow-hidden flex items-center gap-2 bg-white pr-1">
               <input className="border-0 outline-0 p-2 outline-none" type="text" placeholder="Search Item .." />
-                {/* <button className='bg-blue-500 px-4 py-3 text-white font-bold'>Search</button> */}
               <IoSearch className="text-2xl" />
-
-              {/* {menu && (
-                <ul className=" lg:hidden font-semibold absolute top-16 right-0 bg-gray-300 px-10 w-[100vw] mx-auto block z-50">
-                  <Link
-                    href={"/"}
-                    className="py-2 text-sm cursor-pointer block"
-                  >
-                    Home
-                  </Link>
-                  <Link
-                    href={"/shop"}
-                    className="py-2 text-sm cursor-pointer  block"
-                  >
-                    Shop
-                  </Link>
-                  <Link
-                    href={"/"}
-                    className="relative cursor-pointer group py-2 text-sm  block"
-                  >
-                    Menu <FaAngleDown className="inline" />
-                    <ul className=" group-hover:block mt-8 z-50  block">
-                      <div className="">
-                        <li className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
-                          <Image
-                            className=" cursor-pointer w-10 h-10 rounded-full"
-                            src={"https://i.ibb.co/FJNqb44/images.jpg"}
-                            alt="user"
-                            width={40}
-                            height={40}
-                          />{" "}
-                          Menu1
-                        </li>
-                        <li className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
-                          <Image
-                            className=" cursor-pointer w-10 h-10 rounded-full"
-                            src={"https://i.ibb.co/FJNqb44/images.jpg"}
-                            alt="user"
-                            width={40}
-                            height={40}
-                          />{" "}
-                          Menu1
-                        </li>
-                        <li className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
-                          <Image
-                            className=" cursor-pointer w-10 h-10 rounded-full"
-                            src={"https://i.ibb.co/FJNqb44/images.jpg"}
-                            alt="user"
-                            width={40}
-                            height={40}
-                          />{" "}
-                          Menu1
-                        </li>
-                      </div>
-                    </ul>
-                  </Link>
-                  <Link
-                    href={"/about"}
-                    className="py-2 text-sm cursor-pointer  block"
-                  >
-                    About
-                  </Link>
-                  <Link
-                    href={"/contact"}
-                    className="py-2 text-sm cursor-pointer  block"
-                  >
-                    Contact
-                  </Link>
-                </ul>
-              )} */}
             </label>
-            <Link href={'/addproduct'} className="cursor-pointer bg-transparent">
+            <Link href={'/addproduct'} className={`${pathname =='/addproduct' ? 'text-red-500' : ''} cursor-pointer bg-transparent`}>
               <MdShoppingCart
-                onClink={handleSearch}
+                onClick={handleSearch}
                 className="sm:text-3xl text-xl bg-transparent "
               />
             </Link>
-            <Link href={'/login'}>
+            <Link href={'/login'} >
               <Image
                 className=" cursor-pointer sm:w-10 w-8 h-8 sm:h-10"
                 src={

@@ -3,10 +3,10 @@ import React from 'react'
 export default function page() {
     return (
         <div>
-            <div className="max-w-7xl mx-auto lg:px-0 sm:px-10 px-4">
-                <div className="allBannerGradint bg-[url('https://patricksaada.com/wp-content/uploads/2023/02/terms-banner-2.jpg')] text-center h-[20vh] flex justify-center items-center ">
+            <div className="allBannerGradint  text-center flex justify-center items-center ">
                     <h2 className="text-5xl text-white font-semibold">Pages</h2>
                 </div>
+            <div className="max-w-7xl mx-auto lg:px-0 sm:px-10 px-4">
                 <div>
                     <div className=' mx-auto space-y-5'>
                         <h2 className="text-4xl font-semibold text-center my-6"><span className="border-b-4 border-[#EE4036]">Trams & Codition</span></h2>

@@ -9,11 +9,12 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 function Shop() {
+
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
     async function products() {
-      await fetch("http://localhost:5002/restaurant")
+      await fetch("https://v7pg4l9c-5002.asse.devtunnels.ms/restaurant")
         .then((res) => res.json())
         .then((data) => setProduct(data));
     }
@@ -179,7 +180,7 @@ function Shop() {
           </div>
           <div className="md:col-span-3 mt-4">
             <div className="bg-gray-100 p-4 flex justify-between items-center">
-              <p>50 Products Found </p>
+              <p>{product?.length > 10 ? `${product.length}`:`0${product.length}` } Products Found </p>
               <div className="flex items-center gap-4">
                 <select name="" id="" className="p-2 border bg-gray-100">
                   <option className="p-2" value="" disabled>

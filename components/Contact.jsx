@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <div className="max-w-7xl mx-auto mb-20">
       <div className="grid md:grid-cols-2 gap-10 items-center">
-        <div className=" font-sans">
+        <div className=" font-sans ">
           <div className="text-center">
             <h2 className="text-4xl font-bold text-[#262261]">Contact Team</h2>
             <p className=" mt-2 font-semibold">
@@ -37,9 +37,9 @@ export default function Contact() {
             </div>
           </div>
         </div>
-        <div>
+        <div className="flex justify-end w-full">
           <Image
-            className="w-8/12 mx-auto"
+            className="w-8/12"
             width={300}
             height={200}
             src="https://res.cloudinary.com/dav9mftpk/image/upload/v1701755146/Contact_us-pana_irsc5e.png"

@@ -6,16 +6,16 @@ import { MdOutlineChevronRight } from "react-icons/md";
 
 async function Products() {
   const res = await fetch(
-    "http://localhost:5003/restaurant"
+    "https://v7pg4l9c-5002.asse.devtunnels.ms/restaurant"
   );
   const datas = await res.json();
 
   return (
     <div>
-      <div className="my-40 max-w-7xl mx-auto">
+      <div className="my-32 max-w-7xl mx-auto">
         <div>
-          <div className="flex justify-between items-center py-5">
-            <div className="my-14 flex  justify-between w-full">
+          <div className="flex justify-between mb-10 items-center">
+            <div className=" flex justify-between w-full">
               <div className="">
                 <h2 className="sm:text-4xl text-xl font-semibold text-[#262261]">
                   POPULAR PRODUCTS

@@ -12,8 +12,8 @@ export default function page() {
         const cardnumber = e.target.cardnumber.value;
         const expireDate = e.target.expireDate.value;
         const cvv = e.target.cvv.value;
-        console.log(information)
-        if(cardname.length < 10){
+
+        if(cardnumber.length < 10){
             return Swal.fire({
                 title: "Please Value Name ?",
                 text: "That thing is still around?",
@@ -29,35 +29,9 @@ export default function page() {
             text: "You clicked the button!",
             icon: "success",
           });
+
+        e.target.reset()
     }
-
-    const [quantity, setQuantity] = useState(1)
-    const [totalMoney , setTotalMoney] = useState(0)
-
-
-    const handleDicress = ()=>{
-      if(quantity < 1){
-        return ;
-      }
-      else if (quantity > 0){
-        setQuantity(quantity-1)
-        setTotalMoney(quantity*100)
-      }
-    }
-    const handleincress = ()=>{
-      if(quantity < 1){
-        return ;
-      }
-      else if (quantity >= 0){
-        setQuantity(quantity+1)
-        setTotalMoney(quantity*100)
-      }
-    }
-
-    console.log(quantity,totalMoney)
-
-
-
 
 
   return (
@@ -66,33 +40,52 @@ export default function page() {
         {/* <h1 className="text-3xl font-bold mb-4">Order Summary</h1> */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="w-full md:w-2/3">
-            <div className="bg-white p-4 rounded shadow">
+            <div className="bg-white p-4 rounded shadow_body_order">
               <h2 className="text-xl font-bold mb-4">Your Order</h2>
               <ul className="list-disc space-y-2">
                 <li className="flex justify-between items-center font-semibold">Name <span>Quantity</span> <span>Price</span></li>
                 <hr />
-                {/* <li className="flex justify-between items-center bg-gray-100 p-2">
-                  Burger <span>1</span> <span>$100.00</span>
-                </li> */}
-                <li className="flex justify-between items-center p-2">
-                  Pizza <span> 
-                            <span onClick={handleDicress} className='mr-2 px-2 rounded bg-gray-100 text-2xl font-semibold cursor-pointer'>- </span>
-                             {quantity}
-                             <span onClick={handleincress} className="ml-2 px-2 rounded bg-gray-100 text-2xl font-semibold cursor-pointer"> +</span>
+
+                <li className="flex justify-between items-center p-2">Pizza
+                        <span> 
+                            <span  className='mr-2 px-2 rounded bg-gray-100 text-2xl font-semibold cursor-pointer'>- </span>
+                             
+                            1
+                             <span  className="ml-2 px-2 rounded bg-gray-100 text-2xl font-semibold cursor-pointer"> +</span>
                         </span> 
-                  <span>${totalMoney}</span>
+                  <span>$100</span>
                 </li>
+                <li className="flex justify-between items-center p-2">Pizza
+                        <span> 
+                            <span  className='mr-2 px-2 rounded bg-gray-100 text-2xl font-semibold cursor-pointer'>- </span>
+                             
+                            1
+                             <span  className="ml-2 px-2 rounded bg-gray-100 text-2xl font-semibold cursor-pointer"> +</span>
+                        </span> 
+                  <span>$100</span>
+                </li>
+                <li className="flex justify-between items-center p-2">Pizza
+                        <span> 
+                            <span  className='mr-2 px-2 rounded bg-gray-100 text-2xl font-semibold cursor-pointer'>- </span>
+                             
+                            1
+                             <span  className="ml-2 px-2 rounded bg-gray-100 text-2xl font-semibold cursor-pointer"> +</span>
+                        </span> 
+                  <span>$100</span>
+                </li>
+               
+
               </ul>
               <hr className="my-4" />
               <div className="flex justify-end">
                 <span className="text-gray-700 font-bold">Total:</span>
-                <span className="text-gray-700 ml-2">${totalMoney}</span>
+                <span className="text-gray-700 ml-2">$300</span>
               </div>
             </div>
           </div>
 
 
-          <div className="w-full md:w-1/3">
+          <div className="w-full md:w-1/3 shadow_body_order rounded-md">
             <div className="bg-white p-4 rounded shadow">
               <h2 className="text-xl font-bold mb-4">Payment Information</h2>
               <form onSubmit={handlePaymentGateway} >

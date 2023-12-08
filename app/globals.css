@@ -20,11 +20,11 @@
   width: 100%;
   height: 30vh;
   background-size: cover;
-  
+  background-position: center;
 }
 
 .allBannerGradint {
-  background-image:  linear-gradient(to left , rgba(37, 35, 35, 0.801),rgba(29, 27, 27, 0.801)), url('https://i.ibb.co/TwnWLcB/banner3.jpg');
+  background-image:  linear-gradient(to left , rgba(37, 35, 35, 0.801),rgba(29, 27, 27, 0.801)), url('https://res.cloudinary.com/dav9mftpk/image/upload/v1701951903/Screenshot_4_bnynvi.png');
   width: 100%;
   height: 30vh;
   background-size: cover;
@@ -43,34 +43,12 @@
   background-position: center;
 }
 .allAddToCartGradint {
-  background-image:  linear-gradient(to left , rgba(37, 35, 35, 0.682),rgba(29, 27, 27, 0.587)), url('https://i.ibb.co/Wnj04bT/Screenshot-3.png') ;
+  background-image:  linear-gradient(to left , rgba(37, 35, 35, 0.682),rgba(29, 27, 27, 0.587)), url('https://res.cloudinary.com/dav9mftpk/image/upload/v1701949606/Screenshot_3_rwfv2v.png') ;
   width: 100%;
   height: 30vh;  
   background-size: cover;
 }
 
-
-/* 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.shadow_body_order{
+  box-shadow: 0px 0px 10px #dfdfdf;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */

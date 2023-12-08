@@ -34,6 +34,9 @@ export default function Favorite() {
         const filterProduct2 = addToFavorite?.filter(i => i.id !== id)
         setAddToFavorite(filterProduct2)
     }
+    const addToCartLocalhost =()=>{
+        console.log('clicked for add to card')
+    }
 
 
 
@@ -47,7 +50,7 @@ export default function Favorite() {
             </div> 
         }
 
-      <div className='grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2  gap-5'>
+      <div className='grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-2  gap-5'>
       {
         addToFavorite?.map(d => <div key={d.id}>
             <div className="shadow-2xl rounded" data-aos="zoom-in">

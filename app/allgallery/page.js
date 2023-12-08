@@ -1,26 +1,19 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { MdOutlineChevronRight } from "react-icons/md";
+import React from 'react'
+import Image from 'next/image';
+import Gallery from '@/components/Gallery'
 
-export default function Gallery() {
+export default function page() {
   return (
-    <div className="max-w-7xl my-40 mx-auto">
+    <div>
+      <div className="max-w-7xl my-20 mx-auto">
       <div className="">
-        <div className="my-14 flex  justify-between w-full">
+        <div className="my-8 flex  justify-between w-full">
           <div className="">
             <h2 className="sm:text-4xl text-xl font-semibold text-[#262261]">
               Photo & Gallery
             </h2>
             <span className="h-1 sm:w-52 bg-[#EE4036] block mt-2"></span>
           </div>
-          <Link
-            href={"/allgallery"}
-            className="text-red-500 font-semibold cursor-pointer underline"
-          >
-            View All <MdOutlineChevronRight className="inline" />
-          </Link>
         </div>
         <div className="grid md:grid-cols-4 sm:grid-cols-3 gap-4 ">
           <Image
@@ -90,5 +83,6 @@ export default function Gallery() {
         </div>
       </div>
     </div>
-  );
+    </div>
+  )
 }

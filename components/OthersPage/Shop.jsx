@@ -112,6 +112,23 @@ function Shop() {
     }
   };
 
+  const [column , setColumn ] = useState(true)
+  const handleColumn3 = ()=>{
+    setColumn(true)
+  }
+  const handleColumn1 = ()=>{
+    setColumn(false)
+  }
+
+
+console.log(column)
+
+
+
+
+
+
+
   return (
     <div className="">
       <div className="allShopGradint">
@@ -203,21 +220,18 @@ function Shop() {
             <div className="bg-gray-100 p-4 flex justify-between items-center">
               <p>{product.length} Products Found </p>
               <div className="flex items-center gap-4">
-              <select ref={updateselectPrice} onChange={handleSelectPriceOpiton} name="" id="" className="p-2 border w-full outline-none bg-gray-100">
-                  <option className="p-4 " value="heigh">
-                    Heigh to Low
-                  </option>
-                  <option className="p-4 " value="low">
-                    Low to Heigh
-                  </option>
-                </select>
+              {/* <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}
+              <select ref={updateselectPrice} onChange={handleSelectPriceOpiton} id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected>Heigh To Low</option>
+                <option value="US">Low To Heigh</option>
+              </select>
                 <span>view</span>
-                <LiaTableSolid className="text-3xl cursor-pointer text-gray-700" />
-                <TfiMenuAlt className="text-2xl cursor-pointer text-gray-700" />
+                <LiaTableSolid onClick={handleColumn3} className="text-5xl cursor-pointer text-gray-700" />
+                <TfiMenuAlt onClick={handleColumn1} className="text-4xl cursor-pointer text-gray-700" />
               </div>
             </div>
             <div
-              className={`grid md:grid-cols-2 xl:grid-cols-3 w-full gap-7 my-10`}
+              className={`grid ${column? 'grid-cols-3': 'grid-cols-1' } w-full gap-7 my-10`}
             >
               {product.map((prod) => (
                 <div data-aos="fade-up" key={prod.id}>
@@ -225,8 +239,8 @@ function Shop() {
                     className=" border rounded p-2 group delay-[2000]"
                     data-aos="zoom-in"
                   >
-                    <div className=" flex flex-col ">
-                      <div className="h-[250px] relative flex-grow">
+                    <div className={`${column? '': 'flex' }`}>
+                      <div className={`${column? '': 'flex' } h-[250px] relative flex-grow`} >
                         <Link href={`/checkout/${prod.id}`}>
                           <Image
                             width={250}

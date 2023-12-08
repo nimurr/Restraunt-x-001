@@ -16,7 +16,7 @@ function Checkout({ params }) {
     const [product , setProduct] = useState([])
     useEffect(()=>{
         async function mainProduct(){
-           await fetch(`https://v7pg4l9c-5002.asse.devtunnels.ms/restaurant/${params.id}`)
+           await fetch(`http://localhost:5002/restaurant/${params.id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
         }

@@ -10,7 +10,7 @@ export default function SingleCategory({params}) {
   const [category, setCategory] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("https://v7pg4l9c-5002.asse.devtunnels.ms/restaurant");
+      const res = await fetch("http://localhost:5002/restaurant");
       const product = await res.json();
       setCategory(product);
     };

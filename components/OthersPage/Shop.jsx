@@ -5,23 +5,54 @@ import { LiaTableSolid } from "react-icons/lia";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { FaStar, FaRegHeart, FaCartArrowDown } from "react-icons/fa";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Swal from "sweetalert2";
 
 function Shop() {
 
+  const [allproduct, setAllproduct] = useState([]);
   const [product, setProduct] = useState([]);
+
+  const updateRangePrice = useRef()
+  const [updateRangePriceValue,setupdateRangePriceValue,] = useState(0)
+  const updateselectPrice = useRef()
+
+  const handelFilterProduct = () => {
+    const priceRange = updateRangePrice.current.value
+    setupdateRangePriceValue(priceRange)
+    const filterproduct = allproduct.filter(product => product.price <= priceRange)
+    setProduct(filterproduct);
+  }
+  const handleSelectPriceOpiton = () => {
+    const pricetype = updateselectPrice.current.value
+    if (pricetype == 'low') {
+      const filterproduct = product.sort((a, b) => a.price - b.price);
+      setProduct(filterproduct);
+      console.log(filterproduct);
+    }
+    if (pricetype == 'heigh') {
+      const filterproduct = product.sort((a, b) => b.price - a.price);
+      setProduct(filterproduct);
+      console.log(filterproduct);
+    }
+
+
+    console.log(pricetype);
+  }
+
 
   useEffect(() => {
     async function products() {
-      await fetch("https://v7pg4l9c-5002.asse.devtunnels.ms/restaurant")
+      await fetch(" http://localhost:5002/restaurant")
         .then((res) => res.json())
-        .then((data) => setProduct(data));
+        .then((data) => {
+          setAllproduct(data)
+          setProduct(data)
+        });
     }
     products();
   }, []);
 
-  console.log(product);
 
   const addToCartLocalhost = (id) => {
     const cartItem = localStorage.getItem("addToCart");
@@ -125,27 +156,17 @@ function Shop() {
                 </div>
               </div>
               <div className="p-4 bg-gray-100 my-4">
-                <h2 className="text-xl bg-gray-100 font-semibold">BY Range </h2>
-                <input type="range" className="w-full my-2 " />
-                <span className="mx-2">10$</span>
+                <h2 className="text-xl bg-gray-100 font-semibold">BY Range {updateRangePriceValue?updateRangePriceValue:'250'}</h2>
+                <input type="range" min={100} max={400} ref={updateRangePrice} onChange={handelFilterProduct} className="w-full my-2 " />
+                <span className="mx-2">100$</span>
                 to
-                <span className="mx-2">200$</span>
+                <span className="mx-2">400$</span>
               </div>
               <form>
-                <h3 className="text-xl p-4 bg-gray-100 font-semibold">
+                {/* <h3 className="text-xl p-4 bg-gray-100 font-semibold">
                   Price Range
-                </h3>
-                <select name="" id="" className="p-4 border w-full bg-gray-100">
-                  <option className="p-2" value="" disabled>
-                    Select You Option
-                  </option>
-                  <option className="p-4 " value="">
-                    Heigh to Low
-                  </option>
-                  <option className="p-4 " value="">
-                    Low to Heigh
-                  </option>
-                </select>
+                </h3> */}
+        
                 <div className="p-4 my-4 bg-gray-100">
                   <h3 className="text-xl mb-2 font-semibold">Price</h3>
                   <label htmlFor="id" className="block my-2">
@@ -180,16 +201,13 @@ function Shop() {
           </div>
           <div className="md:col-span-3 mt-4">
             <div className="bg-gray-100 p-4 flex justify-between items-center">
-              <p>{product?.length > 10 ? `${product.length}`:`0${product.length}` } Products Found </p>
+              <p>{product.length} Products Found </p>
               <div className="flex items-center gap-4">
-                <select name="" id="" className="p-2 border bg-gray-100">
-                  <option className="p-2" value="" disabled>
-                    Select You Option
-                  </option>
-                  <option className="p-4 " value="">
+              <select ref={updateselectPrice} onChange={handleSelectPriceOpiton} name="" id="" className="p-2 border w-full outline-none bg-gray-100">
+                  <option className="p-4 " value="heigh">
                     Heigh to Low
                   </option>
-                  <option className="p-4 " value="">
+                  <option className="p-4 " value="low">
                     Low to Heigh
                   </option>
                 </select>

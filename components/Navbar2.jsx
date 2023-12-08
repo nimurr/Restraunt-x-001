@@ -122,7 +122,7 @@ export default function Navbar2() {
                 className="sm:text-3xl text-xl bg-transparent "
               />
             </Link>
-            <Link href={'/login'} >
+            <Link href={'/profile'} >
               <Image
                 className=" cursor-pointer sm:w-10 w-8 h-8 sm:h-10"
                 src={

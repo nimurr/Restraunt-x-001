@@ -125,7 +125,7 @@ export default function SingleProduct({ product }) {
                         </div>
                         <div className="flex gap-2 justify-between text-white">
                             {
-                                product?.discount ? <h3 className="text-[#EE4036] font-semibold text-2xl"><span>{price - (price * product?.discount / 100)}৳</span>  <del className='text-[12px]'>{price}৳</del></h3> : <h3 className="text-[#EE4036] font-semibold text-2xl">{price}৳</h3>
+                                product?.discount ? <h3 className="text-[#EE4036] font-semibold text-2xl"><span>{price - Math.floor((price * product?.discount / 100))}৳</span>  <del className='text-[12px]'>{price}৳</del></h3> : <h3 className="text-[#EE4036] font-semibold text-2xl">{price}৳</h3>
                             }
                             {/* <button className="bg-gradient-to-r from-red-500 to-[#1f1c4e] py-2 w-1/2 = rounded-md">Add to Cart</button> */}
                         </div>

@@ -17,7 +17,7 @@ export default function Footer() {
                         <Image width={150} height={100} src="https://i.ibb.co/JCTxGy0/Restuarant-X-2-1.png" alt="" />
                         <p className='text-white py-4 text-[15px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero optio distinctio ea quo nihil a.</p>
                         <h3 className='text-white pb-5 text-xl'>FOLLOW US</h3>
-                        <div className='text-white gap-2 flex text-3xl'>
+                        <div className='text-white gap-2 flex text-3xl cursor-pointer'>
                             <div className='bg-[#D9D9D9] p-2 rounded-full'><FaFacebook className='text-black text-xl'></FaFacebook></div>
                             <div className='bg-[#D9D9D9] p-2 rounded-full'><FaTwitter className='text-black text-xl'></FaTwitter></div>
                             <div className='bg-[#D9D9D9] p-2 rounded-full'><FaInstagram className='text-black text-xl'></FaInstagram></div>
@@ -98,7 +98,7 @@ export default function Footer() {
                     <div className='flex gap-10'>
                         <h2>PAYMENT METHOD</h2>
                         <div>
-                            <Image width={200} height={100} src="https://i.ibb.co/0JGc8pm/images-2-1.png" alt="" />
+                            <Image className='cursor-pointer' width={200} height={100} src="https://i.ibb.co/0JGc8pm/images-2-1.png" alt="" />
                         </div>
                     </div>
                 </div>

@@ -42,7 +42,11 @@ function Shop() {
 
   useEffect(() => {
     async function products() {
+<<<<<<< HEAD
       await fetch(" http://localhost:5003/restaurant")
+=======
+      await fetch("http://localhost:5002/restaurant")
+>>>>>>> dd283eb35bf3a1543d81bfdf4105505a463a815f
         .then((res) => res.json())
         .then((data) => {
           setAllproduct(data);

@@ -28,7 +28,7 @@ const ProfileLayout = ({ children }) => {
                             <hr className='border-[1.2px] border-gray-200' />
 
                             <Link className={`hover:text-red-500  p-2 ${pathName == '/profile/passwordupdate' ? 'text-red-600 ' : ''} hover:bg-gray-200`} href={'/profile/passwordupdate'}>Password Update</Link><hr/>
-                            <Link className={`hover:text-red-500  p-2 ${pathName == '/profile/passwordupdate' ? 'text-red-600 ' : ''} hover:bg-gray-200`} href={'/profile/favorite'}>Favorite</Link>
+                            <Link className={`hover:text-red-500  p-2 ${pathName == '/profile/favorite' ? 'text-red-600 ' : ''} hover:bg-gray-200`} href={'/profile/favorite'}>Favorite</Link>
                             <hr className='border-[1.2px] border-gray-200' />
 
                         </div>

@@ -54,8 +54,8 @@ export default function Navbar2() {
 
 
             </div>
-            <div className="lg:block hidden mr-5">
-              <ul className="flex items-center gap-5 font-semibold">
+            <div className={`lg:block ${!menu ? 'hidden' : 'absolute top-16 w-full bg-gray-100'}  `}>
+              <ul className={` ${!menu ? 'block' : ''} sm:flex items-center gap-5 font-semibold`}>
                 <Link href={"/"} className={`py-8 text-[16px] cursor-pointer ${pathname =='/' ? 'text-red-500 font-semibold' : ''} cursor-pointer bg-transparent`}>
                   Home
                 </Link>
@@ -66,7 +66,7 @@ export default function Navbar2() {
                   className={`py-8 text-[16px] group cursor-pointer `} 
                 >
                   Menu <FaAngleDown className="inline" />
-                  <ul className="absolute hidden group-hover:block mt-8 z-50">
+                  <ul className="absolute hidden group-hover:block mt-8 z-50 " >
                     <div className="">
                       <Link href={'/category/burger'}  className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
                         <Image

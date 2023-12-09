@@ -11,12 +11,12 @@ import { FaRegStarHalfStroke } from "react-icons/fa6";
 
 
 
-function Checkout({ params }) {
+function Checkout({params}) {
 
     const [product , setProduct] = useState([])
     useEffect(()=>{
         async function mainProduct(){
-           await fetch(`http://localhost:5002/restaurant/${params.id}`)
+           await fetch(`http://localhost:5003/restaurant/${params.id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
         }

@@ -14,8 +14,21 @@ function Shop() {
   const [product, setProduct] = useState([]);
 
   const updateRangePrice = useRef()
-  const [updateRangePriceValue,setupdateRangePriceValue,] = useState(0)
+  const [updateRangePriceValue, setupdateRangePriceValue,] = useState(0)
   const updateselectPrice = useRef()
+
+  useEffect(() => {
+    async function products() {
+      await fetch("http://localhost:5002/restaurant")
+        .then((res) => res.json())
+        .then((data) => {
+          setAllproduct(data)
+          setProduct(data)
+        });
+    }
+    products();
+  }, []);
+
 
   const handelFilterProduct = () => {
     const priceRange = updateRangePrice.current.value
@@ -41,17 +54,13 @@ function Shop() {
   }
 
 
-  useEffect(() => {
-    async function products() {
-      await fetch(" http://localhost:5002/restaurant")
-        .then((res) => res.json())
-        .then((data) => {
-          setAllproduct(data)
-          setProduct(data)
-        });
-    }
-    products();
-  }, []);
+  //product category filter
+  const handelProductCategoryFilter = (value) =>{
+    console.log(value);
+    const categoryFilter = allproduct.filter(item=>item.category==value)
+    setProduct(categoryFilter)
+  }
+
 
 
   const addToCartLocalhost = (id) => {
@@ -132,31 +141,31 @@ function Shop() {
                 <div>
                   <ul>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Burger
+                      <button onClick={()=>handelProductCategoryFilter('barger')}>Barger</button>
                     </li>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Pizza
+                      <button onClick={()=>handelProductCategoryFilter('pizza')}>Pizza</button>
                     </li>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Sanduage
+                      <button onClick={()=>handelProductCategoryFilter('sanduage')}>Sanduage</button>
                     </li>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Pizza
+                      <button onClick={()=>handelProductCategoryFilter('pizza')}>Pizza</button>
                     </li>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Sanduage
+                      <button onClick={()=>handelProductCategoryFilter('sanduage')}>Sanduage</button>
                     </li>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Burger
+                      <button onClick={()=>handelProductCategoryFilter('barger')}>Burger</button>
                     </li>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Sanduage
+                      <button onClick={()=>handelProductCategoryFilter('sanduage')}>Sanduage</button>
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="p-4 bg-gray-100 my-4">
-                <h2 className="text-xl bg-gray-100 font-semibold">BY Range {updateRangePriceValue?updateRangePriceValue:'250'}</h2>
+                <h2 className="text-xl bg-gray-100 font-semibold">BY Range {updateRangePriceValue ? updateRangePriceValue : '250'}</h2>
                 <input type="range" min={100} max={400} ref={updateRangePrice} onChange={handelFilterProduct} className="w-full my-2 " />
                 <span className="mx-2">100$</span>
                 to
@@ -166,7 +175,7 @@ function Shop() {
                 {/* <h3 className="text-xl p-4 bg-gray-100 font-semibold">
                   Price Range
                 </h3> */}
-        
+
                 <div className="p-4 my-4 bg-gray-100">
                   <h3 className="text-xl mb-2 font-semibold">Price</h3>
                   <label htmlFor="id" className="block my-2">
@@ -203,7 +212,7 @@ function Shop() {
             <div className="bg-gray-100 p-4 flex justify-between items-center">
               <p>{product.length} Products Found </p>
               <div className="flex items-center gap-4">
-              <select ref={updateselectPrice} onChange={handleSelectPriceOpiton} name="" id="" className="p-2 border w-full outline-none bg-gray-100">
+                <select ref={updateselectPrice} onChange={handleSelectPriceOpiton} name="" id="" className="p-2 border w-full outline-none bg-gray-100">
                   <option className="p-4 " value="heigh">
                     Heigh to Low
                   </option>

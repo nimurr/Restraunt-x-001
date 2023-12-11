@@ -11,7 +11,7 @@ export default function page() {
       </div>
       <div className="max-w-7xl px-4 lg:px-0 mx-auto">
         <div className="">
-          <div className="grid grid-cols-2 py-20 pb-32 items-center gap-40 ">
+          <div className="grid md:grid-cols-2 sm:py-20 py-5 sm:pb-32 pb-4 items-center sm:gap-40 gap-4">
             <div className="relative">
               <Image
                 width={300}
@@ -23,7 +23,7 @@ export default function page() {
               <Image
                 width={300}
                 height={250}
-                className="absolute w-72 rounded -bottom-24 border-8 -right-20 object-cover"
+                className="sm:absolute sm:w-72 mt-4 sm:mt-0 rounded -bottom-24 border-8 sm:-right-20  object-cover"
                 src="https://i.ibb.co/LdzPLJb/2-3.jpg"
                 alt=""
               />

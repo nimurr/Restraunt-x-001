@@ -88,7 +88,7 @@ export default function Navbar2() {
                   <ul className="absolute hidden group-hover:block mt-8 z-50 ">
                     <div className="">
                       <Link
-                        href={"/category/burger"}
+                        href={"/category/barger"}
                         className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2"
                       >
                         <Image
@@ -98,7 +98,7 @@ export default function Navbar2() {
                           width={40}
                           height={40}
                         />{" "}
-                        Burger
+                        Barger
                       </Link>
                       <Link
                         href={"/category/pizza"}

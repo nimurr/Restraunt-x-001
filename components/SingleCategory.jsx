@@ -19,6 +19,13 @@ export default function SingleCategory({params}) {
     fetchData();
   }, []);
 
+    useEffect(()=>{
+  const filterProduct = allproduct.filter(item=>item.category==params)
+  setCategory(filterProduct);
+  console.log(filterProduct);
+
+},[allproduct])
+
   const addToCartLocalhost = (id) => {
 
       const cartItem = localStorage.getItem('addToCart')

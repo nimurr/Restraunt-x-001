@@ -87,10 +87,14 @@ export default function Navbar2() {
                   Menu <FaAngleDown className="inline" />
                   <ul className="absolute hidden group-hover:block mt-8 z-50 ">
                     <div className="">
+<<<<<<< HEAD
                       <Link
                         href={"/category/barger"}
                         className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2"
                       >
+=======
+                      <Link href={'/category/barger'}  className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
+>>>>>>> 40d0e35f5208953af6e6fa36edfb17a2e3c244ac
                         <Image
                           className=" cursor-pointer w-10 h-10 rounded-full"
                           src={"https://i.ibb.co/FJNqb44/images.jpg"}

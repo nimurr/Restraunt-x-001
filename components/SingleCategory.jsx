@@ -18,10 +18,21 @@ export default function SingleCategory({params}) {
     fetchData();
   }, []);
 
+<<<<<<< HEAD
 useEffect(()=>{
   const filterProduct = allproduct.filter(item=>item.category==params)
   setCategory(filterProduct);
   console.log(filterProduct);
+=======
+    useEffect(()=>{
+  const filterProduct = allproduct.filter(item=>item.category==params)
+  setCategory(filterProduct);
+  console.log(filterProduct);
+
+},[allproduct])
+
+  const addToCartLocalhost = (id) => {
+>>>>>>> 40d0e35f5208953af6e6fa36edfb17a2e3c244ac
 
 },[allproduct])
 

@@ -17,7 +17,7 @@ import Image from 'next/image';
 
 const Reviews = () => {
     return (
-        <div className=' max-w-7xl mx-auto my-40'>
+        <div className=' max-w-7xl mx-auto sm:my-40 my-10 px-4 lg:px-0'>
              <div className="my-6">
                     <h2 className="sm:text-4xl text-xl font-semibold text-[#262261]">Reviews</h2>
                     <span className="h-1 sm:w-52 bg-[#EE4036] block mt-2"></span>

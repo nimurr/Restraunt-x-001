@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Offers() {
   return (
-    <div className="bg-gray-100 text_family px-4 lg:px-0"> 
+    <div className="bg-gray-100 text_family px-4 my-10 lg:px-0"> 
     <div className="max-w-7xl mx-auto py-20">
       <div className="lg:grid grid-cols-2 flex flex-col-reverse justify-center items-center">
         <div>

@@ -114,20 +114,20 @@ function Checkout({params}) {
                         <p className='mt-4'> Describe the flavors and textures of a classic Italian dish like spaghetti carbonara . What are the key ingredients and cooking techniques used in Japanese cuisine? . Explain the differences between Neapolitan, New York-style, and Chicago-style pizza. Describe the flavors and textures of a classic Italian dish like spaghetti carbonara . What are the key ingredients and cooking techniques used in Japanese cuisine? . Explain the differences between Neapolitan, New York-style, and Chicago-style pizza.</p>
                     </TabPanel>
                     <TabPanel>
-                        <div class="p-8 mb-10 rounded border border-gray-200">    
-                        <h1 class="font-medium text-3xl">Add Your Review</h1>   
+                        <div className="p-8 mb-10 rounded border border-gray-200">    
+                        <h1 className="font-medium text-3xl">Add Your Review</h1>   
                           <form>     
-                             <div class="mt-8 sm:grid lg:grid-cols-3 md:grid-cols-2  gap-4">       
+                             <div className="mt-8 sm:grid lg:grid-cols-3 md:grid-cols-2  gap-4">       
                                 <div>          
-                                    <label for="name" class="text-sm text-gray-700 block mb-1 font-medium">Name</label>          
-                                    <input type="text" name="name" id="name" class="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="Enter your name" />        
+                                    <label for="name" className="text-sm text-gray-700 block mb-1 font-medium">Name</label>          
+                                    <input type="text" name="name" id="name" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="Enter your name" />        
                                 </div>        
                                 <div>          
-                                    <label for="email" class="text-sm text-gray-700 block mb-1 font-medium">Email Adress</label>          
-                                    <input type="text" name="email" id="email" class="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="demo@gmail.com" />        
+                                    <label for="email" className="text-sm text-gray-700 block mb-1 font-medium">Email Adress</label>          
+                                    <input type="text" name="email" id="email" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="demo@gmail.com" />        
                                 </div>        
                                 <div>          
-                                    <label for="job" class="text-sm text-gray-700 block mb-1 font-medium">Rating</label>          
+                                    <label for="job" className="text-sm text-gray-700 block mb-1 font-medium">Rating</label>          
                                     <select className="w-full bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700" name="" id="">
                                         <option disabled value="0">0</option>
                                         <option value="1">1</option>
@@ -138,12 +138,12 @@ function Checkout({params}) {
                                     </select>
                                 </div>        
                                 <div className='col-span-3'>          
-                                    <label for="brithday" class="text-sm text-gray-700 block mb-1 font-medium">Review Comments</label>          
+                                    <label for="brithday" className="text-sm text-gray-700 block mb-1 font-medium">Review Comments</label>          
                                     <textarea className='w-full bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700' placeholder="Review Comments"  name="" id="" cols="200" rows="5"></textarea>
                                 </div>      
                                 </div>      
-                                <div class="space-x-4 mt-8">        
-                                    <button type="submit" class="py-3 px-6 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 font-semibold">Your Comments</button>    
+                                <div className="space-x-4 mt-8">        
+                                    <button type="submit" className="py-3 px-6 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 font-semibold">Your Comments</button>    
                                 </div>    
                             </form>  
                         </div>

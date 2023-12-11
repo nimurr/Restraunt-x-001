@@ -12,9 +12,9 @@ async function Products() {
 
   return (
     <div>
-      <div className="my-32 max-w-7xl mx-auto">
+      <div className="sm:my-32 max-w-7xl mx-auto">
         <div>
-          <div className="flex justify-between mb-10 items-center">
+          <div className="flex justify-between mb-10 items-center  px-4 lg:px-0">
             <div className=" flex justify-between w-full">
               <div className="">
                 <h2 className="sm:text-4xl text-xl font-semibold text-[#262261]">
@@ -36,12 +36,12 @@ async function Products() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 xl:grid-cols-4 sm:grid-cols-2 gap-7">
+        <div className="grid md:grid-cols-3 xl:grid-cols-4 sm:grid-cols-2 gap-7 px-4 lg:px-0">
         {datas.length < 1 && (
                 <div className="w-20 mx-auto" role="status">
                   <svg
                     aria-hidden="true"
-                    class="inline w-14 h-14 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                    className="inline w-14 h-14 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ async function Products() {
                       fill="currentFill"
                     />
                   </svg>
-                  <span class="sr-only">Loading...</span>
+                  <span className="sr-only">Loading...</span>
                 </div>
               )}
           {datas.map((product) => (

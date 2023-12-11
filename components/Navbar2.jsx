@@ -8,7 +8,7 @@ import Link from "next/link";
 import { IoSearch } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
 import { usePathname } from "next/navigation";
-
+import { FaHeart } from "react-icons/fa";
 
 export default function Navbar2() {
   const pathname = usePathname();
@@ -26,9 +26,9 @@ export default function Navbar2() {
 
   return (
     <div className="bg-gray-100 sticky top-0 z-50 text_family">
-      <div className="max-w-7xl mx-auto lg:w-full w-[95%]">
+      <div className="max-w-7xl mx-auto lg:w-full px-4 lg:px-0">
         <nav className="flex justify-between items-center py-5 lg:py-0 ">
-          <div>
+          <div className="hidden sm:block">
             <Link
               href={"/"}
               className="md:text-4xl text-2xl font-bold text-blue-500"
@@ -43,32 +43,54 @@ export default function Navbar2() {
             </Link>
           </div>
 
-          <div className="flex items-center sm:gap-5 gap-2 relative">
+          <div className="flex  items-center w-full lg:justify-end sm:gap-5 gap-2 relative">
             <div onClick={handleMenuClicked} className="lg:hidden block">
-
-              {
-                !menu ? <IoMdMenu className="sm:text-3xl text-xl" />
-                :
-                <AiOutlineClose className="sm:text-3xl text-xl" />
-              }
-
-
+              {!menu ? (
+                <IoMdMenu className="sm:text-3xl text-2xl" />
+              ) : (
+                <AiOutlineClose className="sm:text-3xl text-2xl" />
+              )}
             </div>
-            <div className={`lg:block ${!menu ? 'hidden' : 'absolute top-16 w-full bg-gray-100'}  `}>
-              <ul className={` ${!menu ? 'block' : ''} sm:flex items-center gap-5 font-semibold`}>
-                <Link href={"/"} className={`py-8 text-[16px] cursor-pointer ${pathname =='/' ? 'text-red-500 font-semibold' : ''} cursor-pointer bg-transparent`}>
+            <div
+              className={`lg:block ${
+                !menu ? "hidden" : "absolute top-14 w-full p-2 bg-gray-100"
+              } `}
+            >
+              <ul
+                className={` ${
+                  !menu ? "block" : ""
+                } lg:flex items-center gap-5 font-semibold`}
+              >
+                <Link
+                  href={"/"}
+                  className={`py-8 text-[16px] cursor-pointer ${
+                    pathname == "/" ? "text-red-500 font-semibold" : ""
+                  } cursor-pointer bg-transparent`}
+                >
                   Home
                 </Link>
-                <Link href={"/shop"} className={`py-8 text-[16px] cursor-pointer ${pathname =='/shop' ? 'text-red-500 font-semibold' : ''} cursor-pointer bg-transparent`}>
+                <Link
+                  href={"/shop"}
+                  className={`md:py-8 text-[16px]  ${
+                    !menu ? "" : "block py-3"
+                  } cursor-pointer ${
+                    pathname == "/shop" ? "text-red-500 font-semibold" : ""
+                  } cursor-pointer bg-transparent`}
+                >
                   Shop
                 </Link>
                 <div
-                  className={`py-8 text-[16px] group cursor-pointer `} 
+                  className={`md:py-8 text-[16px]  ${
+                    !menu ? "" : "block py-3"
+                  } group cursor-pointer  `}
                 >
                   Menu <FaAngleDown className="inline" />
-                  <ul className="absolute hidden group-hover:block mt-8 z-50 " >
+                  <ul className="absolute hidden group-hover:block mt-8 z-50 ">
                     <div className="">
-                      <Link href={'/category/burger'}  className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
+                      <Link
+                        href={"/category/burger"}
+                        className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2"
+                      >
                         <Image
                           className=" cursor-pointer w-10 h-10 rounded-full"
                           src={"https://i.ibb.co/FJNqb44/images.jpg"}
@@ -78,7 +100,10 @@ export default function Navbar2() {
                         />{" "}
                         Burger
                       </Link>
-                      <Link href={'/category/pizza'} className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
+                      <Link
+                        href={"/category/pizza"}
+                        className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2"
+                      >
                         <Image
                           className=" cursor-pointer w-10 h-10 rounded-full"
                           src={"https://i.ibb.co/g6jCxmr/download.jpg"}
@@ -88,7 +113,10 @@ export default function Navbar2() {
                         />{" "}
                         Pizza
                       </Link>
-                      <Link href={'/category/sanduage'} className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2">
+                      <Link
+                        href={"/category/sanduage"}
+                        className="w-52 hover:bg-slate-300 bg-gray-200 py-2 px-4 flex items-center gap-2"
+                      >
                         <Image
                           className=" cursor-pointer w-10 h-10 rounded-full"
                           src={"https://i.ibb.co/f8LWj1b/images.jpg"}
@@ -101,28 +129,73 @@ export default function Navbar2() {
                     </div>
                   </ul>
                 </div>
-                <Link href={"/pages"} className={`py-8 text-[16px] cursor-pointer ${pathname =='/pages' ? 'text-red-500 font-semibold' : ''} cursor-pointer bg-transparent`}>
+                <Link
+                  href={"/pages"}
+                  className={`md:py-8 text-[16px]  ${
+                    !menu ? "" : "block py-3"
+                  } cursor-pointer ${
+                    pathname == "/pages" ? "text-red-500 font-semibold" : ""
+                  } cursor-pointer bg-transparent`}
+                >
                   Pages
                 </Link>
-                <Link href={"/about"} className={`py-8 text-[16px] cursor-pointer ${pathname =='/about' ? 'text-red-500 font-semibold' : ''} cursor-pointer bg-transparent`}>
+                <Link
+                  href={"/about"}
+                  className={`md:py-8 text-[16px]  ${
+                    !menu ? "" : "block py-3"
+                  } cursor-pointer ${
+                    pathname == "/about" ? "text-red-500 font-semibold" : ""
+                  } cursor-pointer bg-transparent`}
+                >
                   About
                 </Link>
-                <Link href={"/contact"} className={`py-8 text-[16px] cursor-pointer ${pathname =='/contact' ? 'text-red-500 font-semibold' : ''} cursor-pointer bg-transparent`} >
+                <Link
+                  href={"/contact"}
+                  className={`md:py-8 text-[16px]  ${
+                    !menu ? "" : "block py-3"
+                  } cursor-pointer ${
+                    pathname == "/contact" ? "text-red-500 font-semibold" : ""
+                  } cursor-pointer bg-transparent`}
+                >
                   Contact
                 </Link>
               </ul>
             </div>
             <label className=" bg-transparent cursor-pointer rounded-md overflow-hidden flex items-center gap-2 bg-white pr-1">
-              <input className="border-0 outline-0 p-2 outline-none" type="text" placeholder="Search Item .." />
+              <input
+                className="border-0 outline-0 p-2 outline-none"
+                type="text"
+                placeholder="Search Item .."
+              />
               <IoSearch className="text-2xl" />
             </label>
-            <Link href={'/addproduct'} className={`${pathname =='/addproduct' ? 'text-red-500' : ''} cursor-pointer bg-transparent`}>
+
+            <Link
+              href={"/favorite"}
+              className={`${
+                pathname == "/favorite" ? "text-red-500" : ""
+              } cursor-pointer bg-transparent`}
+            >
+              <FaHeart
+                onClick={handleSearch}
+                className="sm:text-3xl text-xl bg-transparent "
+              />
+            </Link>
+
+            <Link
+              href={"/addproduct"}
+              className={`${
+                pathname == "/addproduct" ? "text-red-500" : ""
+              } cursor-pointer bg-transparent`}
+            >
               <MdShoppingCart
                 onClick={handleSearch}
                 className="sm:text-3xl text-xl bg-transparent "
               />
             </Link>
-            <Link href={'/profile'} >
+            
+
+            <Link href={"/profile"}>
               <Image
                 className=" cursor-pointer sm:w-10 w-8 h-8 sm:h-10"
                 src={

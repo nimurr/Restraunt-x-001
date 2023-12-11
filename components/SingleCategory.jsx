@@ -3,10 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaCartArrowDown, FaRegHeart, FaStar } from "react-icons/fa";
+import Swal from 'sweetalert2';
+
+
 
 export default function SingleCategory({params}) {
     
-
   const [category, setCategory] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -17,13 +19,84 @@ export default function SingleCategory({params}) {
     fetchData();
   }, []);
 
+  const addToCartLocalhost = (id) => {
+
+      const cartItem = localStorage.getItem('addToCart')
+      const pars = JSON.parse(cartItem);
+
+      if(pars && pars.find(d => d == id )){
+        return Swal.fire({
+          icon: "error",
+          title: "Already Added !",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
+      }
+
+      else if(pars){
+          const data = [id ,...pars]
+          Swal.fire({
+              title: "Add To Card Successfully!",
+              text: "You clicked the button!",
+              icon: "success"
+            });
+        return localStorage.setItem('addToCart', JSON.stringify(data))
+      }
+      else{
+          Swal.fire({
+              title: "Add To Card Successfully!",
+              text: "You clicked the button!",
+              icon: "success"
+            });
+        return localStorage.setItem('addToCart', JSON.stringify([id]))
+      }
+      // const data = [id, ...pars];
+
+
+  }
+
+  const handleFavorite = (id) =>{
+
+      const cartItem = localStorage.getItem('favorite')
+      const pars = JSON.parse(cartItem);
+      if(pars && pars.find(d => d == id )){
+        return Swal.fire({
+          icon: "error",
+          title: "Already Added !",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
+      }
+
+      else if(pars){
+          const data = [id ,...pars]
+          Swal.fire({
+              title: "Fovorite Add Successfully!",
+              text: "You clicked the button!",
+              icon: "success"
+            });
+        return localStorage.setItem('favorite', JSON.stringify(data))
+      }
+      else{
+          Swal.fire({
+              title: "Fovorite Add Successfully!",
+              text: "You clicked the button!",
+              icon: "success"
+            });
+        return localStorage.setItem('favorite', JSON.stringify([id]))
+      }
+
+  }
+
+
+
   return (
-    <div className="">
+    <div className="px-4 lg:px-0">
       {category.length < 1 && (
                 <div className="w-20 mx-auto" role="status">
                   <svg
                     aria-hidden="true"
-                    class="inline w-14 h-14 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                    className="inline w-14 h-14 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +110,7 @@ export default function SingleCategory({params}) {
                       fill="currentFill"
                     />
                   </svg>
-                  <span class="sr-only">Loading...</span>
+                  <span className="sr-only">Loading...</span>
                 </div>
               )}
       <div className="grid lg:grid-cols-3 sm:grid-clos-2 gap-6 min-h-[80vh]">

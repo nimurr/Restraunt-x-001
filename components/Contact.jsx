@@ -18,7 +18,7 @@ export default function Contact() {
               Connect with our team for efficient and prompt assistance.
             </p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-5 my-10">
+          <div className="grid lg:grid-cols-2 gap-5 my-10 px-4 lg:px-0">
             <div className="flex pl-5 items-center gap-2 border p-3 hover:bg-slate-100 cursor-pointer rounded-md">
               <FaWhatsapp className="text-[#45b73a] text-3xl" />
               <p>Text to 01xxxxxxx</p>

@@ -6,8 +6,8 @@ import { MdOutlineChevronRight } from "react-icons/md";
 
 export default function Gallery() {
   return (
-    <div className="max-w-7xl my-40 mx-auto">
-      <div className="">
+    <div className="max-w-7xl sm:my-40 mx-auto">
+      <div className="px-4 lg:px-0">
         <div className="my-14 flex  justify-between w-full">
           <div className="">
             <h2 className="sm:text-4xl text-xl font-semibold text-[#262261]">

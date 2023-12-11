@@ -9,9 +9,9 @@ export default function page() {
             <div className="max-w-7xl mx-auto lg:px-0 sm:px-10 px-4">
                 <div>
                     <div className=' mx-auto space-y-5'>
-                        <h2 className="text-4xl font-semibold text-center my-6"><span className="border-b-4 border-[#EE4036]">Trams & Codition</span></h2>
+                        <h2 className="sm:text-4xl text-2xl font-semibold text-center my-6"><span className="border-b-4 border-[#EE4036]">Trams & Codition</span></h2>
                         <div>
-                            <div className="text-left">
+                            <div className="sm:text-left text-justify px-4 lg:px-0">
                                 <ol className='list-decimal space-y-3 my-10'>
                                     <li>
                                         <h4 className='text-xl font-semibold'>Privacy Policy</h4>

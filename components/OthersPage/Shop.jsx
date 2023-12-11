@@ -42,11 +42,7 @@ function Shop() {
 
   useEffect(() => {
     async function products() {
-<<<<<<< HEAD
       await fetch(" http://localhost:5003/restaurant")
-=======
-      await fetch("http://localhost:5002/restaurant")
->>>>>>> dd283eb35bf3a1543d81bfdf4105505a463a815f
         .then((res) => res.json())
         .then((data) => {
           setAllproduct(data);
@@ -122,7 +118,15 @@ function Shop() {
     setColumn(false);
   };
 
-  console.log(column);
+  //product category filter
+  const handelProductCategoryFilter = (value) =>{
+    const categoryFilter = allproduct.filter(item=>item.category==value)
+    setProduct(categoryFilter)
+  }
+
+
+
+
 
   return (
     <div className="">
@@ -142,27 +146,27 @@ function Shop() {
               <div className="p-4 bg-gray-100 my-4">
                 <h2 className="font-semibold mb-4 text-xl">Categories</h2>
                 <div>
-                  <ul>
+                <ul>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Burger
+                      <button onClick={()=>handelProductCategoryFilter('barger')}>Burger</button>
                     </li>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Pizza
+                      <button onClick={()=>handelProductCategoryFilter('pizza')}>Pizza</button>
                     </li>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Sanduage
+                      <button onClick={()=>handelProductCategoryFilter('sanduage')}>Sanduage</button>
                     </li>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Pizza
+                      <button onClick={()=>handelProductCategoryFilter('pizza')}>Pizza</button>
                     </li>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Sanduage
+                      <button onClick={()=>handelProductCategoryFilter('sanduage')}>Sanduage</button>
                     </li>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Burger
+                      <button onClick={()=>handelProductCategoryFilter('barger')}>Burger</button>
                     </li>
                     <li className="py-1 px-2 cursor-pointer hover:bg-gray-200 ">
-                      Sanduage
+                      <button onClick={()=>handelProductCategoryFilter('sanduage')}>Sanduage</button>
                     </li>
                   </ul>
                 </div>
